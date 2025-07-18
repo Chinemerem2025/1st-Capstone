@@ -3,6 +3,8 @@ package org.example;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class TransactionHelper {
@@ -41,8 +43,15 @@ public class TransactionHelper {
         String description = asking.nextLine();
         System.out.println("Enter vendor: ");
         String vendor = asking.nextLine();
+// From Chinemerem, show description of what is sending to ledger after series of input
+        System.out.println(" Registered: " + "|" + " Date: " + LocalDate.now() + "|" +
+                " Time: " + LocalTime.now() + "|" +
+                " Description: "   + description + "|" + " Vendor: " + vendor + "|" +
+                " Payment Amount: " + depositAmount);
 
         addTransaction(depositAmount, description, vendor);
+
+        System.out.println();
 
     }
     public static void makePayment() {
@@ -53,6 +62,14 @@ public class TransactionHelper {
         String description = asking.nextLine();
         System.out.println("Enter vendor: ");
         String vendor = asking.nextLine();
+
+        // From Chinemerem, show description of what is sending to ledger after series of input
+        System.out.println(" Registered: " + "|" + " Date: " + LocalDate.now() + "|" +
+                " Time: " + LocalTime.now() + "|" +
+                " Description: "   + description + "|" + " Vendor: " + vendor + "|" +
+                " Payment Amount: " + paymentAmount);
+
+        System.out.println();
 
         addTransaction(-paymentAmount, description, vendor);
 
